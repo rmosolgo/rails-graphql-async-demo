@@ -4,7 +4,11 @@ This app demonstrates parallel HTTP and ActiveRecord calls using the [proposed A
 
 To enable the AsyncDataloader, use it in the schema configuration:
 
-https://github.com/rmosolgo/rails-graphql-async-demo/blob/1e7ac9356f87e6a8b3d867a2c0815c8ab6b83e69/app/graphql/async_graphql_demo_schema.rb#L7-L8
+```diff
+- use GraphQL::Dataloader
++ use GraphQL::Dataloader::AsyncDataloader
++ # from a development branch of graphql-ruby
+```
 
 Consider a query like this one:
 
