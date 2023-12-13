@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  set: MyString
+  name: MyString
+  mana_cost: MyString
+  cmc: 1.5
+
+two:
+  set: MyString
+  name: MyString
+  mana_cost: MyString
+  cmc: 1.5
