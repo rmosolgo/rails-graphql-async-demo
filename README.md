@@ -1,6 +1,6 @@
 # Rails, GraphQL, Async demo
 
-This app demonstrates parallel HTTP and ActiveRecord calls using the [proposed AsyncDataloader](https://github.com/rmosolgo/graphql-ruby/pull/4727). You could use this to speed up GraphQL-Ruby queries that do long-running external service calls.
+This app demonstrates parallel HTTP and ActiveRecord calls using [AsyncDataloader](https://graphql-ruby.org/dataloader/async_dataloader). You could use this to speed up GraphQL-Ruby queries that do long-running external service calls.
 
 To enable the AsyncDataloader, use it in the schema configuration:
 

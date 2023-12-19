@@ -1,7 +1,7 @@
 PATH
   remote: ../graphql-ruby
   specs:
-    graphql (2.1.7)
+    graphql (2.2.0)
       racc (~> 1.4)
 
 GEM
