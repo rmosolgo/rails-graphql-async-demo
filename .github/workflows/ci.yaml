@@ -23,4 +23,4 @@ jobs:
           bundler-cache: true
       - run: bundle exec rails db:setup test
         env:
-          DATABASE_URL: "postgres://postgres@localhost:5432/test_daasync_graphql_demo_testtabase_name"
+          DATABASE_URL: "postgres://postgres@localhost:5432/async_graphql_demo_test"
