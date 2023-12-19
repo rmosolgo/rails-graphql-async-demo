@@ -72,7 +72,7 @@ group :test do
 end
 
 gem "async"
-gem "graphql", "~> 2.1", path: "~/code/graphql-ruby"
+gem "graphql", "~> 2.2"
 gem "graphiql-rails", group: :development
 
 gem "pg", "~> 1.5"
