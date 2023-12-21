@@ -1,5 +1,24 @@
 # frozen_string_literal: true
 require "net/http"
+
+class ActiveRecord::ConnectionAdapters::ConnectionPool
+  def my_stat
+    synchronize do
+      {
+        # size: size,
+        connections: @connections.size,
+        in_use: @connections.select(&:in_use?).map(&:object_id),
+        owner_alive: @connections.select { |c| c.owner&.alive? }.map(&:object_id),
+        owner: @connections.map { |c| c.owner },
+        # current_context: ActiveSupport::IsolatedExecutionState.context,
+        # busy: @connections.count { |c| c.in_use? && c.owner.alive? },
+        # dead: @connections.count { |c| c.in_use? && !c.owner.alive? },
+        # idle: @connections.count { |c| !c.in_use? },
+        waiting: num_waiting_in_queue,
+      }
+    end
+  end
+end
 module Types
   class QueryType < Types::BaseObject
     field :node, Types::NodeType, null: true, description: "Fetches an object given its ID." do
@@ -45,11 +64,8 @@ module Types
     end
 
     def local_count(set:)
-      c = nil
-      puts "Started #{set.inspect}"
-      c = Card.where(set: set).count(:*)
-      puts "Finished #{set.inspect}"
-      c
+      # pp ActiveRecord::Base.connection_pool.my_stat
+      Card.where(set: set).count(:*)
     end
 
     field :local_dataloader_count, Int do
@@ -58,6 +74,11 @@ module Types
 
     def local_dataloader_count(set:)
       dataloader.with(Sources::LocalSet, set.first(3)).load(:count)
+    end
+
+    field :test_error, String
+    def test_error
+      raise AsyncGraphqlDemoSchema::TestError
     end
   end
 end

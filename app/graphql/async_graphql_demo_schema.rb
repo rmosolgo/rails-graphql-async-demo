@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
+# Disable warnings about unhandled errors
+Console.logger.disable(Async::Task)
 class AsyncGraphqlDemoSchema < GraphQL::Schema
+  class TestError < StandardError
+  end
+
   mutation(Types::MutationType)
   query(Types::QueryType)
 
