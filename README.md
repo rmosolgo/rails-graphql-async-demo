@@ -52,9 +52,6 @@ Completed 200 OK in 120ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 882
 
 #### HTTP Calls
 
-This app has a GraphQL field and a Dataloader source that make external calls:
-
-https://github.com/rmosolgo/rails-graphql-async-demo/blob/1e7ac9356f87e6a8b3d867a2c0815c8ab6b83e69/app/graphql/types/query_type.rb#L21-L32
 
 https://github.com/rmosolgo/rails-graphql-async-demo/blob/1e7ac9356f87e6a8b3d867a2c0815c8ab6b83e69/app/graphql/sources/remote_set.rb#L6-L13
 
@@ -62,7 +59,5 @@ https://github.com/rmosolgo/rails-graphql-async-demo/blob/1e7ac9356f87e6a8b3d867
 #### ActiveRecord Calls
 
 _Note: with sqlite3, these won't be parallel because sqlite only supports one operation at a time._
-
-https://github.com/rmosolgo/rails-graphql-async-demo/blob/1e7ac9356f87e6a8b3d867a2c0815c8ab6b83e69/app/graphql/types/query_type.rb#L43-L53
 
 https://github.com/rmosolgo/rails-graphql-async-demo/blob/1e7ac9356f87e6a8b3d867a2c0815c8ab6b83e69/app/graphql/sources/local_set.rb#L6-L12
